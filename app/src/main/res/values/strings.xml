@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Trailevy</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="trackExpenses">Record your expenses on the go with just a few taps.</string>
+
+    <string name="hello_blank_fragmen">Hello blank fragment</string>
+
+    <!-- New strings -->
+    <string name="makeBudget">Set budgets and receive alerts when nearing your spending limits.</string>
+    <string name="analytics">Visualize your expenses with interactive charts for better financial planning</string>
+</resources>

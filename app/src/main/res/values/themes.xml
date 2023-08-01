@@ -1,0 +1,14 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.Trailevy" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your light theme here. -->
+         <item name="colorPrimary">@color/primary</item>
+        <item name ="android:statusBarColor">@color/primary_opac</item>
+    </style>
+
+    <style name="Theme.Trailevy" parent="Base.Theme.Trailevy" />
+</resources>
+
+
+
+
