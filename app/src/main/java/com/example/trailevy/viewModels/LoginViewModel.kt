@@ -10,6 +10,7 @@ import androidx.lifecycle.ViewModel
 import com.example.trailevy.data.UserLoginRequest
 import com.example.trailevy.data.UserLoginResponse
 import com.example.trailevy.data.UserSignupRequest
+import com.example.trailevy.repository.LoginRepository
 import com.example.trailevy.retrofit.RetrofitInstance
 import retrofit2.Call
 import retrofit2.Callback
@@ -17,41 +18,21 @@ import retrofit2.Response
 import kotlin.math.log
 
 class LoginViewModel() : ViewModel() {
+
+    private val loginRepository = LoginRepository()
+
     private val _loginResult = MutableLiveData<Boolean>()
     val loginResult: LiveData<Boolean>
         get() = _loginResult
 
-    fun login(email:String,password:String){
-
-        val userLoginRequest = UserLoginRequest(email,password)
-        val call = RetrofitInstance.apiService.login(userLoginRequest)
-
-        call.enqueue(object :Callback<UserLoginResponse>{
-            override fun onResponse(
-                call: Call<UserLoginResponse>,
-                response: Response<UserLoginResponse>
-            ) {
-               if (response.isSuccessful){
-                   val loginResponse = response.body()!!
-
-                   _loginResult.value =  true
-               }else{
-                   _loginResult.value= false
-                   Log.e("LoginViewModel", "Login request failed with code: ${response.code()}")
-
-               }
 
 
-            }
-
-            override fun onFailure(call: Call<UserLoginResponse>, t: Throwable) {
-                _loginResult.value =false
 
 
-                Log.e("LoginViewModel", t.message.toString());
-
-            }
-
-        })
+    fun login(email: String, password: String) {
+        loginRepository.loginUser(email, password) { isSuccess ->
+            _loginResult.value = isSuccess
+        }
     }
 }
+

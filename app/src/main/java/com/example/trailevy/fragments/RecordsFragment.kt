@@ -72,7 +72,7 @@ class RecordsFragment : Fragment() {
         }
 
         recordsMvvm.getRecords()
-        recordsMvvm.getTatals()
+        recordsMvvm.getTotals()
 
 
 
